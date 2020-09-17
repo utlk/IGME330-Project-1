@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>SINE WAVE</title>
+    <style>canvas{border: 1px solid black;} input{position:absolute; margin:auto; top:30%} #ampLabel{position:absolute; margin:auto; top:25%}</style>
+    
+</head>
+<body>
+    <div>
+    <canvas id="canvas" width ="800" height ="160"  
+    style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+    <canvas id="canvas2" width ="800" height ="160"
+    style="position: absolute; left: 0; top: 0; z-index: 1;" ></canvas>
+    </div>
+
+    <label id="ampLabel">Amplitude: </label>
+    <input type="range" min= "1" max ="100" value = "50" id="amplitude" oninput = "changeAmp()">
+
+    <script src="src/talLIB.js"></script>
+    <script src="src/index.js"></script>
+    
+</body>
