@@ -3,19 +3,32 @@
 <head>
 	<meta charset="utf-8" />
 	<title>SINE WAVE</title>
-    <style>canvas{border: 1px solid black;} input{position:absolute; margin:auto; top:30%} #ampLabel{position:absolute; margin:auto; top:25%}</style>
+    <link rel="stylesheet" href="styles/default-styles.css">
     
 </head>
 <body>
     <div>
-    <canvas id="canvas" width ="800" height ="160"  
-    style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
-    <canvas id="canvas2" width ="800" height ="160"
-    style="position: absolute; left: 0; top: 0; z-index: 1;" ></canvas>
+    <canvas class="canvasStyle" id="canvas" width ="800" height ="160"  
+    ></canvas>
+    <canvas class="canvasStyle"  id="canvas2" width ="800" height ="160"
+    ></canvas>
     </div>
 
+    <div id="controls">
     <label id="ampLabel">Amplitude: </label>
-    <input type="range" min= "1" max ="100" value = "50" id="amplitude" oninput = "changeAmp()">
+    <input type="range" min= "1" max ="100" value = "50" id="amplitude">
+    
+    <label id="freqLabel">Frequency: </label>
+    <input type="range" min= "10" max ="100" value = "30" id="freq" >
+
+    <form id="gradForm">
+        <label id="gradLabel">Gradient Axis: </label>
+        <input id="yB" type="radio" name="gradient" class="gradDir" value=0  checked >y
+        <input id="xB" type="radio" name="gradient" class="gradDir" value=1 >x
+        
+    </form>
+    </div>
+
 
     <script src="src/talLIB.js"></script>
     <script src="src/index.js"></script>

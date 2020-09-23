@@ -3,8 +3,8 @@ var ctx1;
 (function (){
     "use strict"
      let amplitude, ampLabel, ampValue;
-     let frequency;
-     let graphNum;
+     let frequency, freqLabel, freqValue;
+     let gradVal, xButton, yButton;
     window.onload = init;
     let step = 4;
 
@@ -14,15 +14,30 @@ var ctx1;
         ctx1 = canvas2.getContext("2d");//ctx1 contains the sin wave
         talLIB.drawAxis(context);
         amplitude = document.querySelector("#amplitude");
+        frequency = document.querySelector("#freq")
         
+        //Gets controls for the Amplitude slider
         ampLabel = document.querySelector("#ampLabel");
         ampLabel.innerHTML = `Amplitude ${amplitude.value}`;
         ampValue = amplitude.value;
         onRangeChange(amplitude,changeAmp);
         
+        //Gets controls for the frequency slider;
+        freqLabel = document.querySelector("#freqLabel");
+        freqLabel.innerHTML = `Frequency: ${frequency.value}`;
+        freqValue = frequency.value;
+        onRangeChange(frequency, changeFreq)
+        
+        //Gets controls for the gradient direction
+        xButton = document.querySelector("#xB");
+        yButton = document.querySelector("#yB");
+        xButton.onclick = changeGradientDir;
+        yButton.onclick = changeGradientDir;
+        changeGradientDir();
         draw();
+        
     };
-    
+  
     //Function makes sliders properly function. Taken from Stackoverflow
     function onRangeChange(r,f) {
         var n,c,m;
@@ -33,15 +48,28 @@ var ctx1;
     function draw(){
         requestAnimationFrame(draw);
         ctx1.clearRect(0,0, 800, 160);
-        talLIB.drawSin(ctx1, step, ampValue);
+        talLIB.drawSin(ctx1, step, ampValue, freqValue, gradVal);
         step+=4;
     }
 
+    //Handles changing the frequency of the wave
+    function changeFreq()
+    {
+        freqLabel.innerHTML = `Frequency: ${frequency.value}`;
+        freqValue = frequency.value;
+    }
 
-  
-
+    //Handles changing the amplitude of the wave
     function changeAmp(){
         ampLabel.innerHTML = `Amplitude ${amplitude.value}`;
         ampValue = amplitude.value;
+    }
+
+    //handles changing the direction of the gradient.
+    function changeGradientDir()
+    {
+        if(xButton.checked){gradVal = 0;}
+        else{gradVal = 1;}
+    
     }
 })();

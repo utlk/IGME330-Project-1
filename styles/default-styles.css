@@ -1,0 +1,59 @@
+canvas
+{
+    border: 1px solid black;
+} 
+
+#amplitude
+{
+    position:absolute; 
+    margin:auto; 
+    top:30%
+} 
+
+#ampLabel
+{
+    position:absolute; 
+    margin:auto; 
+    top:25%
+}
+
+#gradForm{
+    position: absolute;
+    margin: auto;
+    top: 50%;
+}
+
+#freq
+{
+    position:absolute; 
+    margin:auto; 
+    top:40%
+}
+
+#freqLabel
+{
+    position:absolute; 
+    margin:auto; 
+    top:35%;
+}
+
+
+
+
+
+#canvas
+{
+    z-index: 0;
+}
+
+#canvas2 
+{
+    z-index: 1;
+}
+
+.canvasStyle
+{
+    position: absolute; 
+    left: 0; 
+    top: 0;
+}
