@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>SINE WAVE</title>
+    <title>SINE WAVE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"> 
+    <!-- font is from here https://fonts.google.com/specimen/Oswald?sidebar.open=true&selection.family=Oswald-->
     <link rel="stylesheet" href="styles/default-styles.css">
     
 </head>
 <body>
-    <div>
+    <h1 id="bigTitle">Sine Wave Generator</h1>
+<div id=container>
+    <div id= "canvasDiv">
     <canvas class="canvasStyle" id="canvas" width ="800" height ="160"  
     ></canvas>
     <canvas class="canvasStyle"  id="canvas2" width ="800" height ="160"
@@ -15,20 +19,26 @@
     </div>
 
     <div id="controls">
-    <label id="ampLabel">Amplitude: </label>
-    <input type="range" min= "1" max ="100" value = "50" id="amplitude">
-    
-    <label id="freqLabel">Frequency: </label>
-    <input type="range" min= "10" max ="100" value = "30" id="freq" >
+        <div id="ampCon">
+            <label id="ampLabel">Amplitude: </label>
+            <input type="range" min= "1" max ="100" value = "50" id="amplitude">
+        </div>
 
-    <form id="gradForm">
-        <label id="gradLabel">Gradient Axis: </label>
-        <input id="yB" type="radio" name="gradient" class="gradDir" value=0  checked >y
-        <input id="xB" type="radio" name="gradient" class="gradDir" value=1 >x
-        
-    </form>
+        <div id="fCon">
+            <label id="freqLabel">Frequency: </label>
+            <input type="range" min= "10" max ="100" value = "30" id="freq" >
+        </div>
+     
+        <div id="gradCon">
+            <form id="gradForm">
+                <label id="gradLabel">Gradient Axis: </label>
+                <input id="yB" type="radio" name="gradient" class="gradDir" value=0  checked >y
+                <input id="xB" type="radio" name="gradient" class="gradDir" value=1 >x
+
+            </form>
+        </div>
     </div>
-
+</div>
 
     <script src="src/talLIB.js"></script>
     <script src="src/index.js"></script>

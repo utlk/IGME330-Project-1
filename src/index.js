@@ -18,7 +18,7 @@ var ctx1;
         
         //Gets controls for the Amplitude slider
         ampLabel = document.querySelector("#ampLabel");
-        ampLabel.innerHTML = `Amplitude ${amplitude.value}`;
+        ampLabel.innerHTML = `Amplitude: ${amplitude.value}`;
         ampValue = amplitude.value;
         onRangeChange(amplitude,changeAmp);
         

@@ -2,44 +2,50 @@ canvas
 {
     border: 1px solid black;
 } 
-
-#amplitude
+*
 {
-    position:absolute; 
-    margin:auto; 
-    top:30%
+    font-family: 'Oswald', sans-serif;
+}
+
+body
+{
+ background-color: darkblue;
+}
+#amplitude, #freq
+{
+    position:relative; 
+    top: 7px;
 } 
 
-#ampLabel
+#container
 {
-    position:absolute; 
-    margin:auto; 
-    top:25%
-}
-
-#gradForm{
+    margin: 0px auto;
     position: absolute;
-    margin: auto;
-    top: 50%;
+    width: auto;
+    padding: 10px;
+    display:block;
+    left: 50vh;
+    right: 50vh;
+    text-align: center;
+    background-color: white;
+
+    border-radius: 10px;
+    box-shadow: 9px 9px ;
 }
 
-#freq
+#ampLabel, #freqLabel
 {
-    position:absolute; 
-    margin:auto; 
-    top:40%
+    position: relative;
 }
-
-#freqLabel
+#bigTitle
 {
-    position:absolute; 
-    margin:auto; 
-    top:35%;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    text-shadow: 9px 9px black;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: black;
 }
-
-
-
-
 
 #canvas
 {
@@ -49,11 +55,28 @@ canvas
 #canvas2 
 {
     z-index: 1;
+    position: absolute;
 }
 
 .canvasStyle
 {
-    position: absolute; 
     left: 0; 
     top: 0;
+    margin:auto;
+}
+
+#canvasDiv, #gradCon, #ampCon, #fCon, #gradForm
+{
+    display: inline-block;
+    position: relative;
+    
+}
+
+#controls
+{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    
 }
