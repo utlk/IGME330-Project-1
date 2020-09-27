@@ -1,10 +1,11 @@
-var context;
-var ctx1;
+let context;
+let ctx1;
 (function (){
     "use strict"
      let amplitude, ampLabel, ampValue;
      let frequency, freqLabel, freqValue;
      let gradVal, xButton, yButton;
+     let sinGraph, cosGraph;
     window.onload = init;
     let step = 4;
 
@@ -34,8 +35,13 @@ var ctx1;
         xButton.onclick = changeGradientDir;
         yButton.onclick = changeGradientDir;
         changeGradientDir();
-        draw();
         
+        //Gets the graph type controls
+        sinGraph = document.querySelector("#sinChoice");
+        cosGraph = document.querySelector("#cosChoice");
+        draw();
+
+       
     };
   
     //Function makes sliders properly function. Taken from Stackoverflow
@@ -48,7 +54,15 @@ var ctx1;
     function draw(){
         requestAnimationFrame(draw);
         ctx1.clearRect(0,0, 800, 160);
-        talLIB.drawSin(ctx1, step, ampValue, freqValue, gradVal);
+        if(cosGraph.checked)
+        {
+            talLIB.drawCos(ctx1, step, ampValue, freqValue, gradVal);
+        }
+        else
+        {
+            talLIB.drawSin(ctx1, step, ampValue, freqValue, gradVal);
+        }
+       
         step+=4;
     }
 
@@ -72,4 +86,5 @@ var ctx1;
         else{gradVal = 1;}
     
     }
+
 })();

@@ -4,11 +4,11 @@
     let canvasWidth = canvas.width;
     let canvasHeight = canvas.height;
    
-    //Draws a sinWave. Based on this code here https://gist.github.com/gkhays/e264009c0832c73d5345847e673a64ab
+    //Draws a sinWave.
     function drawSin(ctx, stepNum, amplitude, freqV, gradientDir){
         
         ctx.save();
-        ctx.beginPath()
+        ctx.beginPath();
         ctx.lineWidth = 3;
         
         let x = 4.0, y= 0.0;
@@ -36,6 +36,34 @@
         ctx.restore();
     }
 
+    //Draws a Cosine Graph
+    function drawCos(ctx, stepNum, amplitude, freqV, gradientDir)
+    {
+        ctx.save();
+        ctx.beginPath();
+        ctx.lineWidth = 3;
+        let x = 4.0, y = 0.0;
+        let amp = amplitude;
+        let freq = freqV;
+        let gradient;
+
+        while (x < canvasWidth)
+        {
+            if(gradientDir){gradient= ctx.createLinearGradient(0, canvasHeight+80, 0, 0);}
+            else{gradient= ctx.createLinearGradient(4, 0, x, y);}
+
+            gradient.addColorStop(0,`rgb(0, 0, 153)`);
+            gradient.addColorStop(.5, `rgb(76, 0, 153)`);
+            gradient.addColorStop(1, `rgb(255, 0, 127)`);
+
+            y = canvasHeight/2 + amp * Math.cos((x+stepNum)/ freq);
+            ctx.strokeStyle = gradient; 
+            ctx.lineTo(x,Math.floor(y));
+            x= x +1;
+        }
+        ctx.stroke();
+        ctx.restore();
+    }
     //Draws the x and y axis on the canvas
     function drawAxis(ctx){
         ctx.save();
@@ -49,5 +77,5 @@
         ctx.restore();
     } 
 
-    window.talLIB ={drawAxis, drawSin};
+    window.talLIB ={drawAxis, drawSin, drawCos};
 })();
